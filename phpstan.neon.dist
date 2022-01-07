@@ -1,0 +1,20 @@
+includes:
+  - phpstan-baseline.neon
+  - ./vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+  paths:
+    - src
+    - tests
+
+  # The level 9 is the highest level
+  level: 5
+
+  tmpDir: build/phpstan
+
+  checkOctaneCompatibility: true
+
+  checkModelProperties: true
+
+  checkMissingIterableValueType: false

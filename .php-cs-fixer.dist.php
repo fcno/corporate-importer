@@ -1,9 +1,8 @@
 <?php
 
 /**
- * @link https://github.com/FriendsOfPHP/PHP-CS-Fixer
+ * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer
  */
-
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . DIRECTORY_SEPARATOR . 'tests')
     ->in(__DIR__ . DIRECTORY_SEPARATOR . 'src')
@@ -24,7 +23,7 @@ $rules = [
     'phpdoc_line_span' => true,
     'phpdoc_order' => true,
     'phpdoc_types_order' => [
-        'null_adjustment' => 'always_last', 'sort_algorithm' => 'alpha'
+        'null_adjustment' => 'always_last', 'sort_algorithm' => 'alpha',
     ],
     'phpdoc_var_annotation_correct_order' => true,
 ];

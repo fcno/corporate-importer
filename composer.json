@@ -64,7 +64,7 @@
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse --ansi --memory-limit 1G --error-format=github --debug",
         "coverage": "composer test -- --coverage",
-        "csfix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --config=.php-cs-fixer.dist.php --allow-risky=yes",
+        "csfix": "vendor/bin/php-cs-fixer fix -v --config=.php-cs-fixer.dist.php --allow-risky=yes",
         "test": "vendor/bin/pest --colors=always"
     }
 }

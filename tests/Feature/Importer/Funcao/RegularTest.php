@@ -22,4 +22,4 @@ test('consegue importar as funções do arquivo corporativo', function () {
 
     expect($funcoes)->toHaveCount(3)
     ->and($funcoes->pluck('nome'))->toMatchArray(['Função 1', 'Função 2', 'Função 3']);
-})->only();
+});

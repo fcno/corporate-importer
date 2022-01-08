@@ -43,10 +43,10 @@ final class FuncaoImporter extends BaseImporter
      */
     protected function extractFieldsFromNode(\XMLReader $node): array
     {
-        return dd([
+        return [
             'id' => $node->getAttribute('id'),
             'nome' => $node->getAttribute('nome'),
-        ]);
+        ];
     }
 
     /**

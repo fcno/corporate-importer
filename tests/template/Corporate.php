@@ -44,5 +44,30 @@ return <<<XML
         <!-- Nome com mais de 255 caracteres -->
         <funcao id="9" nome="F8WRcUYFTJKuA0ZJva5MX5FX7mnMeXqKVHHDsUqfs6nnGjWVi33A0AfziN8Z9ALD2GiQEgltl9Ucd45rs2TSA2jvqeLT2t60X5S3O4lt8j9ZURmSPm1LBvLXWcBmh4vLjORDuSH50SBcwzcZbaTTbxFqZI5k9LOqcw5VlRtqCox44sAFXKkKVms9KvnL9ltmvtRp63JxqpWrp81TuYcnXuPc2MALKWO9Dwxc8pxP6XWKsJ5M3qYVgib8OIEc00O4"/>
     </funcoes>
+    <lotacoes>
+         <!-- Lotações Válidas -->
+        <lotacao id="1" nome="Lotação 1" sigla="sigla 1"/>
+        <lotacao id="2" nome="Lotação 2" sigla="sigla 2" idPai=""/>
+        <lotacao id="3" nome="Lotação 3" sigla="sigla 3" idPai="1"/>
+        <!-- Lotações Inválidas -->
+        <!-- Sem o ID -->
+        <lotacao nome="Lotação 4" sigla="sigla 4" idPai="1"/>
+        <!-- ID nulo/vazio -->
+        <lotacao id="" nome="Lotação 5" sigla="sigla 5"/>
+        <!-- ID menor ou igual a zero -->
+        <lotacao id="0" nome="Lotação 6" sigla="sigla 6" idPai="1"/>
+        <!-- Sem o nome -->
+        <lotacao id="7" sigla="sigla 7"/>
+        <!-- Nome nulo/vazio -->
+        <lotacao id="8" nome="" sigla="sigla 8" idPai="1"/>
+        <!-- Nome com mais de 255 caracteres -->
+        <lotacao id="9" nome="F8WRcUYFTJKuA0ZJva5MX5FX7mnMeXqKVHHDsUqfs6nnGjWVi33A0AfziN8Z9ALD2GiQEgltl9Ucd45rs2TSA2jvqeLT2t60X5S3O4lt8j9ZURmSPm1LBvLXWcBmh4vLjORDuSH50SBcwzcZbaTTbxFqZI5k9LOqcw5VlRtqCox44sAFXKkKVms9KvnL9ltmvtRp63JxqpWrp81TuYcnXuPc2MALKWO9Dwxc8pxP6XWKsJ5M3qYVgib8OIEc00O4" sigla="sigla 9"/>
+        <!-- Sem o sigla -->
+        <lotacao id="10" nome="Lotação 10" idPai="1"/>
+        <!-- Sigla nulo/vazio -->
+        <lotacao id="12" nome="Lotação 11" sigla=""/>
+        <!-- Sigla com mais de 55 caracteres -->
+        <lotacao id="12" nome="Lotação 12" sigla="X7mnMeXqKVHHDsUqfs6nnGjWVi33A0AfziN8Z9ALD2GiQEgltl9Ucd45" idPai="1"/>
+    </lotacoes>
 </base>
 XML;

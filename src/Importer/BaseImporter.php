@@ -104,7 +104,6 @@ abstract class BaseImporter implements IImportable
      */
     abstract protected function extractFieldsFromNode(\XMLReader $node): array;
 
-
     /**
      * Faz a persistência dos itens validados.
      */

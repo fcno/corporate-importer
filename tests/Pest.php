@@ -12,7 +12,7 @@ uses()
     ]);
 
     // load do template do arquivo corporativo
-    $xmlstr = require __DIR__.'/template/Corporate.php';
+    $xmlstr = require __DIR__ . '/template/Corporate.php';
 
     $this->file_name = 'corporativo.xml';
 

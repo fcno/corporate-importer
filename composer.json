@@ -37,7 +37,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Fcno\\CorporateImporter\\": "src"
+            "Fcno\\CorporateImporter\\": "src",
+            "Fcno\\CorporateImporter\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {

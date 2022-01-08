@@ -18,6 +18,8 @@ test('importa os cargos corretamente', function () {
     CargoImporter::make()
                     ->from($this->file_system->path($this->file_name))
                     ->execute();
+    $cargos = Cargo::get();
 
-    expect(Cargo::count())->toBe(3);
+    expect($cargos)->toHaveCount(3)
+    ->and($cargos->pluck('nome'))->toMatchArray(['Cargo 1', 'Cargo 2', 'Cargo 3']);
 });

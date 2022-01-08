@@ -88,6 +88,29 @@ abstract class BaseImporter implements IImportable
     }
 
     /**
+     * Extrai do nó XML os campos de interesse para o objeto.
+     *
+     * O array conterá os campos de interesse (key), e os respectivos valores
+     * (value) extraídos do nó xml informado.
+     *
+     * Ex.: [
+     *     'id' => '10',
+     *     'nome' => 'Fábio Cassiano',
+     * ]
+     *
+     * @param \XMLReader $node nó de onde serão extraídos os valores
+     *
+     * @return array<string, string> array assoc
+     */
+    abstract protected function extractFieldsFromNode(\XMLReader $node): array;
+
+
+    /**
+     * Faz a persistência dos itens validados.
+     */
+    abstract protected function save(Collection $validated): void;
+
+    /**
      * Prepara a entidade para persistência.
      *
      * A preparação é feita por meio dos seguintes passos:
@@ -95,13 +118,46 @@ abstract class BaseImporter implements IImportable
      * - Extrair os dados do nó xml de interesse;
      * - Validar os dados extraídos e, se preciso, logar as inconsistências;
      * - Acionar a persistência.
+     *
+     * @see https://drib.tech/programming/parse-large-xml-files-php
      */
-    abstract protected function process(): void;
+    protected function process(): void
+    {
+        $validated = collect();
+        $xml = new \XMLReader();
+        $xml->open($this->file_path);
 
-    /**
-     * Faz a persistência dos itens validados.
-     */
-    abstract protected function save(Collection $validated): void;
+        // finding first primary element to work with
+        while ($xml->read() && $xml->name != $this->node) {
+        }
+
+        // looping through elements
+        while ($xml->name == $this->node) {
+            $input = $this->extractFieldsFromNode($xml);
+
+            $valid = $this->validateAndLogError($input);
+
+            if ($valid) {
+                $validated->push($valid);
+            }
+
+            // salva a quantidade determinada de registros por vez
+            if ($validated->count() >= $this->max_upsert) {
+                $this->save($validated);
+                $validated = collect();
+            }
+
+            // moving pointer
+            $xml->next($this->node);
+        }
+
+        $xml->close();
+
+        // salva o saldo dos registros
+        if ($validated->isNotEmpty()) {
+            $this->save($validated);
+        }
+    }
 
     /**
      * Retorna os inputs válidos de acordo com as rules de importação.
@@ -112,7 +168,7 @@ abstract class BaseImporter implements IImportable
      *
      * @return array<string, string>|null assoc array
      */
-    protected function validateAndLogError(array $inputs): ?array
+    private function validateAndLogError(array $inputs): ?array
     {
         $validator = Validator::make($inputs, $this->rules);
 

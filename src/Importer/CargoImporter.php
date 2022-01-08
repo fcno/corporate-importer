@@ -40,46 +40,13 @@ final class CargoImporter extends BaseImporter
 
     /**
      * {@inheritdoc}
-     *
-     * @see https://drib.tech/programming/parse-large-xml-files-php
      */
-    protected function process(): void
+    protected function extractFieldsFromNode(\XMLReader $node): array
     {
-        $validated = collect();
-        $xml = new \XMLReader();
-        $xml->open($this->file_path);
-
-        // finding first primary element to work with
-        while ($xml->read() && $xml->name != $this->node) {
-        }
-
-        // looping through elements
-        while ($xml->name == $this->node) {
-            $valid = $this->validateAndLogError([
-                'id' => $xml->getAttribute('id'),
-                'nome' => $xml->getAttribute('nome'),
-            ]);
-
-            if ($valid) {
-                $validated->push($valid);
-            }
-
-            // salva a quantidade determinada de registros por vez
-            if ($validated->count() >= $this->max_upsert) {
-                $this->save($validated);
-                $validated = collect();
-            }
-
-            // moving pointer
-            $xml->next($this->node);
-        }
-
-        $xml->close();
-
-        // salva o saldo dos registros
-        if ($validated->isNotEmpty()) {
-            $this->save($validated);
-        }
+        return [
+            'id' => $node->getAttribute('id'),
+            'nome' => $node->getAttribute('nome'),
+        ];
     }
 
     /**

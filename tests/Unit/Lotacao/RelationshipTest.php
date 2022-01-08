@@ -8,7 +8,7 @@ use Fcno\CorporateImporter\Models\Lotacao;
 use Fcno\CorporateImporter\Models\Usuario;
 use Illuminate\Database\QueryException;
 
-test('lança exceção ao tentar definir relacionamento com lotação pai inexistente', function () {
+test('lança exceção ao tentar definir relacionamento inválido, isto é, com lotação pai inexistente', function () {
     expect(
         fn () => Lotacao::factory()
                         ->create(['lotacao_pai' => 10])

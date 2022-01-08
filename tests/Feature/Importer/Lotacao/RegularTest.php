@@ -29,10 +29,11 @@ test('consegue importar as funções do arquivo corporativo', function () {
 test('cria os logs para as lotações inválidas', function () {
     Log::shouldReceive('log')
         ->times(9)
-        ->withArgs(function($level) {
-            return $level === 'warning';
-        }
-    );
+        ->withArgs(
+            function ($level) {
+                return $level === 'warning';
+            }
+        );
 
     LotacaoImporter::make()
                     ->from($this->file_system->path($this->file_name))

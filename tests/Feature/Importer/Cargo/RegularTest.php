@@ -28,10 +28,11 @@ test('consegue importar os cargos do arquivo corporativo', function () {
 test('cria os logs para os cargos inválidos', function () {
     Log::shouldReceive('log')
         ->times(6)
-        ->withArgs(function($level) {
-            return $level === 'warning';
-        }
-    );
+        ->withArgs(
+            function ($level) {
+                return $level === 'warning';
+            }
+        );
 
     CargoImporter::make()
                     ->from($this->file_system->path($this->file_name))

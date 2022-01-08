@@ -28,10 +28,11 @@ test('consegue importar as funções do arquivo corporativo', function () {
 test('cria os logs para as funções inválidas', function () {
     Log::shouldReceive('log')
         ->times(6)
-        ->withArgs(function($level) {
-            return $level === 'warning';
-        }
-    );
+        ->withArgs(
+            function ($level) {
+                return $level === 'warning';
+            }
+        );
 
     FuncaoImporter::make()
                     ->from($this->file_system->path($this->file_name))

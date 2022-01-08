@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @see https://pestphp.com/docs/
+ */
+
+use Fcno\CorporateImporter\Importer\CargoImporter;
+use Fcno\CorporateImporter\Models\Cargo;
+
+test('make retorna o objeto da classe', function () {
+    expect(CargoImporter::make())->toBeInstanceOf(CargoImporter::class);
+});
+
+test('importa os cargos corretamente', function () {
+    // forçar a execução de duas queries em pontos distintos e testá-las
+    config(['corporateimporter.maxupsert' => 2]);
+
+    CargoImporter::make()
+                    ->from($this->file_system->path($this->file_name))
+                    ->execute();
+
+    expect(Cargo::count())->toBe(3);
+});

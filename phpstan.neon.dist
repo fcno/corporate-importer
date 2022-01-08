@@ -9,6 +9,7 @@ parameters:
     - tests
 
   # The level 9 is the highest level
+  # https://phpstan.org/user-guide/rule-levels
   level: 5
 
   # https://phpstan.org/config-reference#universal-object-crates

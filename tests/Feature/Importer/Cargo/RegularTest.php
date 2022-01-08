@@ -11,7 +11,7 @@ test('make retorna o objeto da classe', function () {
     expect(CargoImporter::make())->toBeInstanceOf(CargoImporter::class);
 });
 
-test('importa os cargos corretamente', function () {
+test('consegue importar os cargos do arquivo corporativo', function () {
     // forçar a execução de duas queries em pontos distintos e testá-las
     config(['corporateimporter.maxupsert' => 2]);
 

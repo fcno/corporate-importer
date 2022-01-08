@@ -11,7 +11,7 @@ test('make retorna o objeto da classe', function () {
     expect(FuncaoImporter::make())->toBeInstanceOf(FuncaoImporter::class);
 });
 
-test('importa as funções corretamente', function () {
+test('consegue importar as funções do arquivo corporativo', function () {
     // forçar a execução de duas queries em pontos distintos e testá-las
     config(['corporateimporter.maxupsert' => 2]);
 

@@ -21,7 +21,7 @@ return <<<XML
         <!-- Sem o nome -->
         <cargo id="7"/>
         <!-- Nome nulo/vazio -->
-        <cargo id="8" nom=""/>
+        <cargo id="8" nome=""/>
         <!-- Nome com mais de 255 caracteres -->
         <cargo id="9" nome="F8WRcUYFTJKuA0ZJva5MX5FX7mnMeXqKVHHDsUqfs6nnGjWVi33A0AfziN8Z9ALD2GiQEgltl9Ucd45rs2TSA2jvqeLT2t60X5S3O4lt8j9ZURmSPm1LBvLXWcBmh4vLjORDuSH50SBcwzcZbaTTbxFqZI5k9LOqcw5VlRtqCox44sAFXKkKVms9KvnL9ltmvtRp63JxqpWrp81TuYcnXuPc2MALKWO9Dwxc8pxP6XWKsJ5M3qYVgib8OIEc00O4"/>
     </cargos>
@@ -40,7 +40,7 @@ return <<<XML
         <!-- Sem o nome -->
         <funcao id="7"/>
         <!-- Nome nulo/vazio -->
-        <funcao id="8" nom=""/>
+        <funcao id="8" nome=""/>
         <!-- Nome com mais de 255 caracteres -->
         <funcao id="9" nome="F8WRcUYFTJKuA0ZJva5MX5FX7mnMeXqKVHHDsUqfs6nnGjWVi33A0AfziN8Z9ALD2GiQEgltl9Ucd45rs2TSA2jvqeLT2t60X5S3O4lt8j9ZURmSPm1LBvLXWcBmh4vLjORDuSH50SBcwzcZbaTTbxFqZI5k9LOqcw5VlRtqCox44sAFXKkKVms9KvnL9ltmvtRp63JxqpWrp81TuYcnXuPc2MALKWO9Dwxc8pxP6XWKsJ5M3qYVgib8OIEc00O4"/>
     </funcoes>

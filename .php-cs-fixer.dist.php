@@ -3,7 +3,7 @@
 /**
  * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer
  */
-$finder = PhpCsFixer\Finder::create()
+$finder = \PhpCsFixer\Finder::create()
     ->in(__DIR__ . DIRECTORY_SEPARATOR . 'tests')
     ->in(__DIR__ . DIRECTORY_SEPARATOR . 'src')
     ->append(['.php-cs-fixer.dist.php']);
@@ -28,7 +28,7 @@ $rules = [
     'phpdoc_var_annotation_correct_order' => true,
 ];
 
-return (new PhpCsFixer\Config())
+return (new \PhpCsFixer\Config())
     ->setUsingCache(true)
     ->setRules($rules)
     ->setFinder($finder);

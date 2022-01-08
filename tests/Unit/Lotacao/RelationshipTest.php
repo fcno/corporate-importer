@@ -24,7 +24,7 @@ test('lotação pai é opcional', function () {
 
 test('lotação pai tem várias filhas e a filha tem apenas um pai', function () {
     $amount_child = 3;
-    $id_parent = 1;
+    $id_parent = 1000000;
 
     Lotacao::factory()
             ->create(['id' => $id_parent]);

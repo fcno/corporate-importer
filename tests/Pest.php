@@ -21,4 +21,4 @@ uses()
     ->asXML(
         $this->file_system->path($this->file_name)
     );
-})->in('Feature/CargoImporter');
+})->in('Feature/Importer');

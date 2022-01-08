@@ -11,6 +11,25 @@ parameters:
   # The level 9 is the highest level
   level: 5
 
+  # https://phpstan.org/config-reference#universal-object-crates
+  universalObjectCratesClasses:
+    - Fcno\CorporateImporter\Models\Cargo
+    - Fcno\CorporateImporter\Models\Funcao
+    - Fcno\CorporateImporter\Models\Lotacao
+    - Fcno\CorporateImporter\Models\Usuario
+
+  # https://phpstan.org/user-guide/ignoring-errors
+  ignoreErrors:
+    -
+      message: '#Call to method up\(\) on an unknown class#'
+      path: tests/TestCase.php
+    -
+      message: '#Instantiated class Create[a-zA-Z]+Table not found#'
+      path: tests/TestCase.php
+    -
+      message: '#Undefined variable: \$this#'
+      path: tests/*
+
   tmpDir: build/phpstan
 
   checkOctaneCompatibility: true

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fcno\CorporateImporter\Contracts;
+namespace Fcno\CorporateImporter\Importer\Contracts;
 
 interface IImportable
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Fcno\CorporateImporter;
+namespace Fcno\CorporateImporter\Importer;
 
-use Fcno\CorporateImporter\Contracts\IImportable;
 use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
+use Fcno\CorporateImporter\Importer\Contracts\IImportable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;

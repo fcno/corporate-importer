@@ -158,13 +158,14 @@ abstract class BaseImporter implements IImportable
      * can be made by implementors is that if an Exception instance is given
      * to produce a stack trace, it MUST be in a key named "exception".
      *
-     * @param mixed                     $level   nível do log
+     * @param string                    $level   nível do log
      * @param string|\Stringable        $message sobre o ocorrido
      * @param array<string, mixed>|null $context dados de contexto
      *
      * @see https://www.php-fig.org/psr/psr-3/
+     * @see https://www.php.net/manual/en/function.array-merge.php
      */
-    private function log(mixed $level, string|\Stringable $message, ?array $context): void
+    private function log(string $level, string|\Stringable $message, ?array $context): void
     {
         Log::log(
             level: $level,

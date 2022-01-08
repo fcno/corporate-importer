@@ -93,5 +93,4 @@ final class CargoImporter extends BaseImporter
             $this->fields_to_update
         );
     }
-
 }

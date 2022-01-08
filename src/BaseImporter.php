@@ -82,7 +82,7 @@ abstract class BaseImporter implements IImportable
     {
         $max = config('corporateimporter.maxupsert');
 
-        if (is_int($max) && $max >=1) {
+        if (is_int($max) && $max >= 1) {
             $this->max_upsert = $max;
         }
     }
@@ -122,7 +122,7 @@ abstract class BaseImporter implements IImportable
                 __('corporateimporter::corporateimporter.validation'),
                 [
                     'input' => $inputs,
-                    'error_bag' => $validator->getMessageBag()->toArray()
+                    'error_bag' => $validator->getMessageBag()->toArray(),
                 ]
             );
 
@@ -158,8 +158,8 @@ abstract class BaseImporter implements IImportable
      * can be made by implementors is that if an Exception instance is given
      * to produce a stack trace, it MUST be in a key named "exception".
      *
-     * @param mixed $level nível do log
-     * @param string|\Stringable $message sobre o ocorrido
+     * @param mixed                     $level   nível do log
+     * @param string|\Stringable        $message sobre o ocorrido
      * @param array<string, mixed>|null $context dados de contexto
      *
      * @see https://www.php-fig.org/psr/psr-3/
@@ -167,7 +167,7 @@ abstract class BaseImporter implements IImportable
     private function log(mixed $level, string|\Stringable $message, ?array $context): void
     {
         Log::log(
-            level:$level,
+            level: $level,
             message: $message,
             context: $context + [
                 'file_path' => $this->file_path,
@@ -175,7 +175,7 @@ abstract class BaseImporter implements IImportable
                 'rules' => $this->rules,
                 'max_upsert' => $this->max_upsert,
                 'unique' => $this->unique,
-                'fields_to_update' => $this->fields_to_update
+                'fields_to_update' => $this->fields_to_update,
             ]
         );
     }

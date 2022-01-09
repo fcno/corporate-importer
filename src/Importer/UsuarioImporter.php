@@ -47,10 +47,10 @@ final class UsuarioImporter extends BaseImporter
     protected function extractFieldsFromNode(\XMLReader $node): array
     {
         return [
-            'sigla' => $node->getAttribute('sigla'),
+            'sigla' => $node->getAttribute('sigla') ?: null,
             'nome' => $node->getAttribute('nome') ?: null,
-            'lotacao_id' => $node->getAttribute('lotacao'),
-            'cargo_id' => $node->getAttribute('cargo'),
+            'lotacao_id' => $node->getAttribute('lotacao') ?: null,
+            'cargo_id' => $node->getAttribute('cargo') ?: null,
             'funcao_id' => $node->getAttribute('funcaoConfianca') ?: null,
         ];
     }

@@ -63,9 +63,9 @@ final class LotacaoRelationshipImporter extends BaseImporter
     protected function extractFieldsFromNode(\XMLReader $node): array
     {
         return [
-            'id' => $node->getAttribute('id'),
-            'nome' => $node->getAttribute('nome'),
-            'sigla' => $node->getAttribute('sigla'),
+            'id' => $node->getAttribute('id') ?: null,
+            'nome' => $node->getAttribute('nome') ?: null,
+            'sigla' => $node->getAttribute('sigla') ?: null,
             'lotacao_pai' => $node->getAttribute('idPai') ?: null,
         ];
     }

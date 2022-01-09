@@ -44,8 +44,8 @@ final class CargoImporter extends BaseImporter
     protected function extractFieldsFromNode(\XMLReader $node): array
     {
         return [
-            'id' => $node->getAttribute('id'),
-            'nome' => $node->getAttribute('nome'),
+            'id' => $node->getAttribute('id') ?: null,
+            'nome' => $node->getAttribute('nome') ?: null,
         ];
     }
 

@@ -16,5 +16,5 @@ interface IImportable
      *
      * @throws \Fcno\CorporateImporter\Exceptions\FileNotReadableException
      */
-    public function execute(): void;
+    public function run(): void;
 }

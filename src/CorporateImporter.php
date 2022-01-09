@@ -48,19 +48,19 @@ class CorporateImporter implements IImportable
 
         CargoImporter::make()
             ->from($this->file_path)
-            ->execute();
+            ->run();
         FuncaoImporter::make()
             ->from($this->file_path)
-            ->execute();
+            ->run();
         LotacaoImporter::make()
             ->from($this->file_path)
-            ->execute();
+            ->run();
         LotacaoRelationshipImporter::make()
             ->from($this->file_path)
-            ->execute();
+            ->run();
         UsuarioImporter::make()
             ->from($this->file_path)
-            ->execute();
+            ->run();
     }
 
     /**

@@ -19,7 +19,7 @@ test('consegue importar as funções do arquivo corporativo', function () {
 
     LotacaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     $lotacoes = Lotacao::get();
 
     expect($lotacoes)->toHaveCount(5)
@@ -38,7 +38,7 @@ test('cria os logs para as lotações inválidas', function () {
 
     LotacaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
 
     expect(Lotacao::count())->toBe(5);
 });
@@ -46,7 +46,7 @@ test('cria os logs para as lotações inválidas', function () {
 test('consegue importar os autorelacionamentos do arquivo corporativo', function () {
     LotacaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
 
     expect(Lotacao::count())->toBe(5)
     ->and(Lotacao::has('lotacaoPai')->count())->toBe(0)
@@ -54,7 +54,7 @@ test('consegue importar os autorelacionamentos do arquivo corporativo', function
 
     LotacaoRelationshipImporter::make()
         ->from($this->file_path)
-        ->execute();
+        ->run();
 
     expect(Lotacao::count())->toBe(5)
     ->and(Lotacao::has('lotacaoPai')->count())->toBe(2)

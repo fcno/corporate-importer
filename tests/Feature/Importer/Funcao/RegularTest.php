@@ -18,7 +18,7 @@ test('consegue importar as funções do arquivo corporativo', function () {
 
     FuncaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     $funcoes = Funcao::get();
 
     expect($funcoes)->toHaveCount(3)
@@ -36,7 +36,7 @@ test('cria os logs para as funções inválidas', function () {
 
     FuncaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
 
     expect(Funcao::count())->toBe(3);
 });

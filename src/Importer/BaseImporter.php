@@ -67,7 +67,7 @@ abstract class BaseImporter implements IImportable
     /**
      * {@inheritdoc}
      */
-    public function execute(): void
+    public function run(): void
     {
         throw_if(! $this->isReadable($this->file_path), FileNotReadableException::class);
 

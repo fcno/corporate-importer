@@ -21,16 +21,16 @@ test('consegue importar os usuários do arquivo corporativo', function () {
 
     CargoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     FuncaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     LotacaoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     UsuarioImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     $usuarios = Usuario::get();
 
     expect($usuarios)->toHaveCount(5)
@@ -40,13 +40,13 @@ test('consegue importar os usuários do arquivo corporativo', function () {
 test('cria os logs para os usuários inválidos', function () {
     CargoImporter::make()
         ->from($this->file_path)
-        ->execute();
+        ->run();
     FuncaoImporter::make()
         ->from($this->file_path)
-        ->execute();
+        ->run();
     LotacaoImporter::make()
         ->from($this->file_path)
-        ->execute();
+        ->run();
 
     Log::shouldReceive('log')
         ->times(13)
@@ -58,7 +58,7 @@ test('cria os logs para os usuários inválidos', function () {
 
     UsuarioImporter::make()
         ->from($this->file_path)
-        ->execute();
+        ->run();
 
     expect(Usuario::count())->toBe(5);
 });

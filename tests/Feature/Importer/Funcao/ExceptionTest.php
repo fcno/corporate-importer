@@ -11,7 +11,7 @@ test('lança exceção ao executar a importação com arquivo inválido', functi
     expect(
         fn () => FuncaoImporter::make()
                                 ->from($file_name)
-                                ->execute()
+                                ->run()
     )->toThrow(FileNotReadableException::class);
 })->with([
     'inexistente.xml', // inexistente

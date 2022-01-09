@@ -18,7 +18,7 @@ test('consegue importar os cargos do arquivo corporativo', function () {
 
     CargoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
     $cargos = Cargo::get();
 
     expect($cargos)->toHaveCount(3)
@@ -36,7 +36,7 @@ test('cria os logs para os cargos inválidos', function () {
 
     CargoImporter::make()
                     ->from($this->file_path)
-                    ->execute();
+                    ->run();
 
     expect(Cargo::count())->toBe(3);
 });

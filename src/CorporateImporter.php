@@ -2,6 +2,14 @@
 
 namespace Fcno\CorporateImporter;
 
+use Fcno\CorporateImporter\Contracts\IImportable;
+use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
+use Fcno\CorporateImporter\Importer\CargoImporter;
+use Fcno\CorporateImporter\Importer\FuncaoImporter;
+use Fcno\CorporateImporter\Importer\LotacaoImporter;
+use Fcno\CorporateImporter\Importer\LotacaoRelationshipImporter;
+use Fcno\CorporateImporter\Importer\UsuarioImporter;
+
 /**
  * Importador da estrutura completa do arquivo corporativo.
  *
@@ -11,7 +19,61 @@ namespace Fcno\CorporateImporter;
  * 3. Lotação
  * 4. Usuário
  */
-class CorporateImporter
+class CorporateImporter implements IImportable
 {
+    /**
+     * Path completo para o arquivo XML com a estrutura corporativa que será
+     * importado.
+     *
+     * @var string
+     */
+    protected $file_path;
 
+    /**
+     * {@inheritdoc}
+     */
+    public function from(string $file_path): static
+    {
+        $this->file_path = $file_path;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function run(): void
+    {
+        throw_if(! $this->isReadable($this->file_path), FileNotReadableException::class);
+
+        CargoImporter::make()
+            ->from($this->file_path)
+            ->execute();
+        FuncaoImporter::make()
+            ->from($this->file_path)
+            ->execute();
+        LotacaoImporter::make()
+            ->from($this->file_path)
+            ->execute();
+        LotacaoRelationshipImporter::make()
+            ->from($this->file_path)
+            ->execute();
+        UsuarioImporter::make()
+            ->from($this->file_path)
+            ->execute();
+    }
+
+    /**
+     * Verfica se o arquivo informado existe e pode ser lido.
+     *
+     * @param string $file_path full path
+     */
+    private function isReadable(string $file_path): bool
+    {
+        $response = is_readable($file_path);
+
+        clearstatcache();
+
+        return $response;
+    }
 }

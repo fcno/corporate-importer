@@ -8,6 +8,8 @@ use Fcno\CorporateImporter\Importer\CargoImporter;
 use Fcno\CorporateImporter\Importer\FuncaoImporter;
 use Fcno\CorporateImporter\Importer\LotacaoImporter;
 use Fcno\CorporateImporter\Importer\UsuarioImporter;
+use Fcno\CorporateImporter\Trait\Logable;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Importador da estrutura completa do arquivo corporativo.
@@ -20,6 +22,7 @@ use Fcno\CorporateImporter\Importer\UsuarioImporter;
  */
 class CorporateImporter implements IImportable
 {
+    use Logable;
     /**
      * Path completo para o arquivo XML com a estrutura corporativa que será
      * importado.
@@ -45,18 +48,10 @@ class CorporateImporter implements IImportable
     {
         throw_if(! $this->isReadable($this->file_path), FileNotReadableException::class);
 
-        CargoImporter::make()
-            ->from($this->file_path)
-            ->run();
-        FuncaoImporter::make()
-            ->from($this->file_path)
-            ->run();
-        LotacaoImporter::make()
-            ->from($this->file_path)
-            ->run();
-        UsuarioImporter::make()
-            ->from($this->file_path)
-            ->run();
+        $this
+            ->start()
+            ->import()
+            ->finish();
     }
 
     /**
@@ -71,5 +66,68 @@ class CorporateImporter implements IImportable
         clearstatcache();
 
         return $response;
+    }
+
+    /**
+     * Tratativas iniciais da importação.
+     *
+     * @return static
+     */
+    private function start(): static
+    {
+        if ($this->shouldLog()) {
+            Log::log(
+                level:'info',
+                message: __('corporateimporter::corporateimporter.start'),
+                context: [
+                    'file_path' => $this->file_path
+                ]
+            );
+        }
+
+        return $this;
+    }
+
+    /**
+     * Aciona os importadores.
+     *
+     * @return static
+     */
+    private function import(): static
+    {
+        CargoImporter::make()
+            ->from($this->file_path)
+            ->run();
+        FuncaoImporter::make()
+            ->from($this->file_path)
+            ->run();
+        LotacaoImporter::make()
+            ->from($this->file_path)
+            ->run();
+        UsuarioImporter::make()
+            ->from($this->file_path)
+            ->run();
+
+        return $this;
+    }
+
+    /**
+     * Tratativas finais da importação.
+     *
+     * @return static
+     */
+    private function finish(): static
+    {
+        if ($this->shouldLog()) {
+            Log::log(
+                level:'info',
+                message: __('corporateimporter::corporateimporter.end'),
+                context: [
+                    'file_path' => $this->file_path
+                ]
+            );
+        }
+
+        return $this;
     }
 }

@@ -7,7 +7,6 @@ use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
 use Fcno\CorporateImporter\Importer\CargoImporter;
 use Fcno\CorporateImporter\Importer\FuncaoImporter;
 use Fcno\CorporateImporter\Importer\LotacaoImporter;
-use Fcno\CorporateImporter\Importer\LotacaoRelationshipImporter;
 use Fcno\CorporateImporter\Importer\UsuarioImporter;
 
 /**
@@ -53,9 +52,6 @@ class CorporateImporter implements IImportable
             ->from($this->file_path)
             ->run();
         LotacaoImporter::make()
-            ->from($this->file_path)
-            ->run();
-        LotacaoRelationshipImporter::make()
             ->from($this->file_path)
             ->run();
         UsuarioImporter::make()

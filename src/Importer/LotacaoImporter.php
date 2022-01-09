@@ -61,5 +61,9 @@ final class LotacaoImporter extends BaseImporter
             $this->unique,
             $this->fields_to_update
         );
+
+        LotacaoRelationshipImporter::make()
+            ->from($this->file_path)
+            ->run();
     }
 }

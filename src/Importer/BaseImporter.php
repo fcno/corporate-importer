@@ -68,20 +68,23 @@ abstract class BaseImporter implements IImportable
      */
     public function run(): void
     {
-        $this->setup();
-        $this->process();
+        $this
+            ->setup()
+            ->process();
     }
 
     /**
      * Tratativas iniciais para a importação.
      */
-    protected function setup(): void
+    protected function setup(): static
     {
         $max = config('corporateimporter.maxupsert');
 
         if (is_int($max) && $max >= 1) {
             $this->max_upsert = $max;
         }
+
+        return $this;
     }
 
     /**
@@ -117,7 +120,7 @@ abstract class BaseImporter implements IImportable
      *
      * @see https://drib.tech/programming/parse-large-xml-files-php
      */
-    protected function process(): void
+    protected function process(): static
     {
         $validated = collect();
         $xml = new \XMLReader();
@@ -153,6 +156,8 @@ abstract class BaseImporter implements IImportable
         if ($validated->isNotEmpty()) {
             $this->save($validated);
         }
+
+        return $this;
     }
 
     /**

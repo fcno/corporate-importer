@@ -13,8 +13,6 @@ interface IImportable
 
     /**
      * Executa a importação.
-     *
-     * @throws \Fcno\CorporateImporter\Exceptions\FileNotReadableException
      */
     public function run(): void;
 }

@@ -2,7 +2,6 @@
 
 namespace Fcno\CorporateImporter\Importer;
 
-use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
 use Fcno\CorporateImporter\Importer\Contracts\IImportable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
@@ -69,8 +68,6 @@ abstract class BaseImporter implements IImportable
      */
     public function run(): void
     {
-        throw_if(! $this->isReadable($this->file_path), FileNotReadableException::class);
-
         $this->setup();
         $this->process();
     }
@@ -185,20 +182,6 @@ abstract class BaseImporter implements IImportable
         }
 
         return $validator->validated();
-    }
-
-    /**
-     * Verfica se o arquivo informado existe e pode ser lido.
-     *
-     * @param string $file_path full path
-     */
-    private function isReadable(string $file_path): bool
-    {
-        $response = is_readable($file_path);
-
-        clearstatcache();
-
-        return $response;
     }
 
     /**

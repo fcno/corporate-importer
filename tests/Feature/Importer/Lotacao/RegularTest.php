@@ -5,6 +5,7 @@
  */
 
 use Fcno\CorporateImporter\Importer\LotacaoImporter;
+use Fcno\CorporateImporter\Importer\LotacaoRelationshipImporter;
 use Fcno\CorporateImporter\Models\Lotacao;
 use Illuminate\Support\Facades\Log;
 
@@ -21,7 +22,7 @@ test('consegue importar as funções do arquivo corporativo', function () {
                     ->execute();
     $lotacoes = Lotacao::get();
 
-    expect($lotacoes)->toHaveCount(3)
+    expect($lotacoes)->toHaveCount(5)
     ->and($lotacoes->pluck('nome'))->toMatchArray(['Lotação 1', 'Lotação 2', 'Lotação 3'])
     ->and($lotacoes->pluck('sigla'))->toMatchArray(['Sigla 1', 'Sigla 2', 'Sigla 3']);
 });
@@ -39,5 +40,34 @@ test('cria os logs para as lotações inválidas', function () {
                     ->from($this->file_system->path($this->file_name))
                     ->execute();
 
-    expect(Lotacao::count())->toBe(3);
+    expect(Lotacao::count())->toBe(5);
+});
+
+test('consegue importar os autorelacionamentos do arquivo corporativo', function () {
+    LotacaoImporter::make()
+                    ->from($this->file_system->path($this->file_name))
+                    ->execute();
+
+    expect(Lotacao::count())->toBe(5)
+    ->and(Lotacao::has('lotacaoPai')->count())->toBe(0)
+    ->and(Lotacao::has('lotacoesFilha')->count())->toBe(0);
+
+    LotacaoRelationshipImporter::make()
+        ->from($this->file_system->path($this->file_name))
+        ->execute();
+
+    expect(Lotacao::count())->toBe(5)
+    ->and(Lotacao::has('lotacaoPai')->count())->toBe(2)
+    ->and(Lotacao::has('lotacoesFilha')->count())->toBe(1)
+    ->and(
+        Lotacao::with('lotacoesFilha')
+        ->find('1')
+        ->lotacoesFilha
+        ->pluck('nome')
+    )->toMatchArray(['Lotação 3', 'Lotação 5'])
+    ->and(
+        Lotacao::with('lotacaoPai')
+        ->find('1')
+        ->nome
+    )->toBe('Lotação 1');
 });

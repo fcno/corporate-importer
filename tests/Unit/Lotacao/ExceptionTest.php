@@ -11,15 +11,15 @@ use Illuminate\Support\Str;
 test('lança exceção ao tentar cadastrar lotações em duplicidade, isto é, com ids iguais', function () {
     expect(
         fn () => Lotacao::factory()
-                        ->count(2)
-                        ->create(['id' => 10])
+                    ->count(2)
+                    ->create(['id' => 10])
     )->toThrow(QueryException::class, 'Duplicate entry');
 });
 
 test('lança exceção ao tentar cadastrar lotação com campo inválido', function ($field, $value, $msg) {
     expect(
         fn () => Lotacao::factory()
-                        ->create([$field => $value])
+                    ->create([$field => $value])
     )->toThrow(QueryException::class, $msg);
 })->with([
     ['id',    'texto',          'Incorrect integer value'],  //valor não conversível em inteiro

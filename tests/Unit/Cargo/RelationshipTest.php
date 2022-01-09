@@ -11,8 +11,8 @@ test('um cargo possui vários usuários', function () {
     $amount = 3;
 
     Cargo::factory()
-            ->has(Usuario::factory()->count($amount), 'usuarios')
-            ->create();
+        ->has(Usuario::factory()->count($amount), 'usuarios')
+        ->create();
 
     $cargo = Cargo::with('usuarios')->first();
 

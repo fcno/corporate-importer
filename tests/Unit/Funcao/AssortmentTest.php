@@ -12,16 +12,15 @@ test('retorna as funções usando o escopo ascendente por nome', function () {
     $third = 'Função C';
 
     Funcao::factory()
-            ->create(['nome' => $third]);
+        ->create(['nome' => $third]);
 
     Funcao::factory()
-            ->create(['nome' => $first]);
+        ->create(['nome' => $first]);
 
     Funcao::factory()
-            ->create(['nome' => $second]);
+        ->create(['nome' => $second]);
 
-    $funcoes = Funcao::sort()
-                        ->get();
+    $funcoes = Funcao::sort()->get();
 
     expect($funcoes->get(0)->nome)->toBe($first)
     ->and($funcoes->get(1)->nome)->toBe($second)

@@ -12,7 +12,7 @@ use Illuminate\Database\QueryException;
 
 test('cargo, função e lotação são opcionais', function ($field) {
     Usuario::factory()
-            ->create([$field => null]);
+        ->create([$field => null]);
 
     expect(Usuario::count())->toBe(1);
 })->with([
@@ -22,18 +22,15 @@ test('cargo, função e lotação são opcionais', function ($field) {
 ]);
 
 test('um usuário possui um cargo, uma função e/ou uma lotação', function () {
-    $cargo = Cargo::factory()
-                    ->create();
-    $funcao = Funcao::factory()
-                    ->create();
-    $lotacao = Lotacao::factory()
-                        ->create();
+    $cargo = Cargo::factory()->create();
+    $funcao = Funcao::factory()->create();
+    $lotacao = Lotacao::factory()->create();
 
     $usuario = Usuario::factory()
-                        ->for($cargo, 'cargo')
-                        ->for($funcao, 'funcao')
-                        ->for($lotacao, 'lotacao')
-                        ->create();
+                ->for($cargo, 'cargo')
+                ->for($funcao, 'funcao')
+                ->for($lotacao, 'lotacao')
+                ->create();
 
     $usuario->load(['cargo', 'funcao', 'lotacao']);
 
@@ -45,7 +42,7 @@ test('um usuário possui um cargo, uma função e/ou uma lotação', function ()
 test('lança exceção ao tentar definir relacionamento inválido', function ($field, $value, $msg) {
     expect(
         fn () => Usuario::factory()
-                        ->create([$field => $value])
+                    ->create([$field => $value])
     )->toThrow(QueryException::class, $msg);
 })->with([
     ['cargo_id',   10, 'Cannot add or update a child row'], //inexistente

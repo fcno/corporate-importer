@@ -17,7 +17,7 @@ test('lança exceção ao tentar definir relacionamento inválido, isto é, com 
 
 test('lotação pai é opcional', function () {
     Lotacao::factory()
-            ->create(['lotacao_pai' => null]);
+        ->create(['lotacao_pai' => null]);
 
     expect(Lotacao::count())->toBe(1);
 });
@@ -27,18 +27,18 @@ test('lotação pai tem várias filhas e a filha tem apenas um pai', function ()
     $id_parent = 1000000;
 
     Lotacao::factory()
-            ->create(['id' => $id_parent]);
+        ->create(['id' => $id_parent]);
 
     Lotacao::factory()
-            ->count($amount_child)
-            ->create(['lotacao_pai' => $id_parent]);
+        ->count($amount_child)
+        ->create(['lotacao_pai' => $id_parent]);
 
     $pai = Lotacao::with(['lotacoesFilha', 'lotacaoPai'])
-                    ->find($id_parent);
+            ->find($id_parent);
     $filha = Lotacao::with(['lotacoesFilha', 'lotacaoPai'])
-                    ->where('lotacao_pai', '=', $id_parent)
-                    ->get()
-                    ->random();
+                ->where('lotacao_pai', '=', $id_parent)
+                ->get()
+                ->random();
 
     expect($pai->lotacoesFilha)->toHaveCount($amount_child)
     ->and($pai->lotacaoPai)->toBeNull()
@@ -50,8 +50,8 @@ test('uma lotação possui vários usuários', function () {
     $amount = 3;
 
     Lotacao::factory()
-            ->has(Usuario::factory()->count($amount), 'usuarios')
-            ->create();
+        ->has(Usuario::factory()->count($amount), 'usuarios')
+        ->create();
 
     $lotacao = Lotacao::with(['usuarios'])->first();
 

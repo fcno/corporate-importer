@@ -20,17 +20,17 @@ test('consegue importar os usuários do arquivo corporativo', function () {
     config(['corporateimporter.maxupsert' => 2]);
 
     CargoImporter::make()
-                    ->from($this->file_path)
-                    ->run();
+        ->from($this->file_path)
+        ->run();
     FuncaoImporter::make()
-                    ->from($this->file_path)
-                    ->run();
+        ->from($this->file_path)
+        ->run();
     LotacaoImporter::make()
-                    ->from($this->file_path)
-                    ->run();
+        ->from($this->file_path)
+        ->run();
     UsuarioImporter::make()
-                    ->from($this->file_path)
-                    ->run();
+        ->from($this->file_path)
+        ->run();
     $usuarios = Usuario::get();
 
     expect($usuarios)->toHaveCount(5)

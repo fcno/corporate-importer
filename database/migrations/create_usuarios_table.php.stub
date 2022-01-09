@@ -25,9 +25,21 @@ class CreateUsuariosTable extends Migration
             $table->string('sigla', 20)->unique();
             $table->timestamps();
 
-            $table->foreign('lotacao_id')->references('id')->on('lotacoes')->onUpdate('cascade');
-            $table->foreign('cargo_id')->references('id')->on('cargos')->onUpdate('cascade');
-            $table->foreign('funcao_id')->references('id')->on('funcoes')->onUpdate('cascade');
+            $table
+                ->foreign('lotacao_id')
+                ->references('id')
+                ->on('lotacoes')
+                ->onUpdate('cascade');
+            $table
+                ->foreign('cargo_id')
+                ->references('id')
+                ->on('cargos')
+                ->onUpdate('cascade');
+            $table
+                ->foreign('funcao_id')
+                ->references('id')
+                ->on('funcoes')
+                ->onUpdate('cascade');
         });
     }
 

@@ -10,8 +10,8 @@ use Fcno\CorporateImporter\Importer\FuncaoImporter;
 test('lança exceção ao executar a importação com arquivo inválido', function ($file_name) {
     expect(
         fn () => FuncaoImporter::make()
-                                ->from($file_name)
-                                ->run()
+                    ->from($file_name)
+                    ->run()
     )->toThrow(FileNotReadableException::class);
 })->with([
     'inexistente.xml', // inexistente

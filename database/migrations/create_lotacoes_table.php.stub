@@ -24,7 +24,11 @@ class CreateLotacoesTable extends Migration
 
             $table->primary('id');
 
-            $table->foreign('lotacao_pai')->references('id')->on('lotacoes')->onUpdate('cascade');
+            $table
+                ->foreign('lotacao_pai')
+                ->references('id')
+                ->on('lotacoes')
+                ->onUpdate('cascade');
         });
     }
 

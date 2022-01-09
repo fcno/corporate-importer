@@ -7,15 +7,15 @@ test('cadastra múltiplos usuários', function () {
     $amount = 30;
 
     Usuario::factory()
-            ->count($amount)
-            ->create();
+        ->count($amount)
+        ->create();
 
     expect(Usuario::count())->toBe($amount);
 });
 
 test('campo do usuário em seu tamanho máximo é aceito', function ($field, $length) {
     Usuario::factory()
-            ->create([$field => Str::random($length)]);
+        ->create([$field => Str::random($length)]);
 
     expect(Usuario::count())->toBe(1);
 })->with([
@@ -25,7 +25,7 @@ test('campo do usuário em seu tamanho máximo é aceito', function ($field, $le
 
 test('nome é opcional', function () {
     Usuario::factory()
-            ->create(['nome' => null]);
+        ->create(['nome' => null]);
 
     expect(Usuario::count())->toBe(1);
 });

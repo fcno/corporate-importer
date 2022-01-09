@@ -11,15 +11,15 @@ use Illuminate\Support\Str;
 test('lança exceção ao tentar cadastrar usuários em duplicidade, isto é, com siglas iguais', function () {
     expect(
         fn () => Usuario::factory()
-                        ->count(2)
-                        ->create(['sigla' => 'aduser'])
+                    ->count(2)
+                    ->create(['sigla' => 'aduser'])
     )->toThrow(QueryException::class, 'Duplicate entry');
 });
 
 test('lança exceção ao tentar cadastrar usuário com campo inválido', function ($field, $value, $msg) {
     expect(
         fn () => Usuario::factory()
-                        ->create([$field => $value])
+                    ->create([$field => $value])
     )->toThrow(QueryException::class, $msg);
 })->with([
     ['nome',  Str::random(256), 'Data too long for column'], //campo aceita no máximo 255 caracteres

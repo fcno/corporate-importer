@@ -12,16 +12,15 @@ test('retorna os cargos usando o escopo ascendente por nome', function () {
     $third = 'Cargo C';
 
     Cargo::factory()
-            ->create(['nome' => $third]);
+        ->create(['nome' => $third]);
 
     Cargo::factory()
-            ->create(['nome' => $first]);
+        ->create(['nome' => $first]);
 
     Cargo::factory()
-            ->create(['nome' => $second]);
+        ->create(['nome' => $second]);
 
-    $cargos = Cargo::sort()
-                    ->get();
+    $cargos = Cargo::sort()->get();
 
     expect($cargos->get(0)->nome)->toBe($first)
     ->and($cargos->get(1)->nome)->toBe($second)

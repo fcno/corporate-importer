@@ -11,15 +11,15 @@ use Illuminate\Support\Str;
 test('lança exceção ao tentar cadastrar cargos em duplicidade, isto é, com ids iguais', function () {
     expect(
         fn () => Cargo::factory()
-                        ->count(2)
-                        ->create(['id' => 10])
+                    ->count(2)
+                    ->create(['id' => 10])
     )->toThrow(QueryException::class, 'Duplicate entry');
 });
 
 test('lança exceção ao tentar cadastrar cargo com campo inválido', function ($field, $value, $msg) {
     expect(
         fn () => Cargo::factory()
-                        ->create([$field => $value])
+                    ->create([$field => $value])
     )->toThrow(QueryException::class, $msg);
 })->with([
     ['id',   'texto',          'Incorrect integer value'],  //valor não conversível em inteiro

@@ -12,16 +12,15 @@ test('retorna os usuários usando o escopo ascendente por nome', function () {
     $third = 'Usuário C';
 
     Usuario::factory()
-            ->create(['nome' => $third]);
+        ->create(['nome' => $third]);
 
     Usuario::factory()
-            ->create(['nome' => $first]);
+        ->create(['nome' => $first]);
 
     Usuario::factory()
-            ->create(['nome' => $second]);
+        ->create(['nome' => $second]);
 
-    $usuarios = Usuario::sort()
-                        ->get();
+    $usuarios = Usuario::sort()->get();
 
     expect($usuarios->get(0)->nome)->toBe($first)
     ->and($usuarios->get(1)->nome)->toBe($second)

@@ -8,12 +8,12 @@ return [
      * ------------------------------------------------------------------------
      *
      * Este package gera log para 04 cenários:
-     * - Inicio da importação
+     * - Início da importação
      * - Fim da importação
      * - Falha na importação
      * - Inconsistências/falhas de validação nos dados
      *
-     * Se habilitado, todos os cenários acima são registrados utilizando-se o
+     * Se habilitado, todos os cenários acima serão registrados utilizando-se o
      * driver de log default da aplicação.
      * Isso é útil para monitor se o processo de importação está ocorrendo como
      * esperado.

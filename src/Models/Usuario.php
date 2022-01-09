@@ -16,7 +16,13 @@ class Usuario extends Model
 
     protected $table = 'usuarios';
 
-    protected $fillable = ['sigla', 'nome', 'lotacao_id', 'cargo_id', 'funcao_id'];
+    protected $fillable = [
+        'sigla',
+        'nome',
+        'lotacao_id',
+        'cargo_id',
+        'funcao_id'
+    ];
 
     /**
      * Lotação de um determinado usuário.

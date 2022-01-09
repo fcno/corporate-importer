@@ -11,8 +11,8 @@ test('uma função possui vários usuários', function () {
     $amount = 3;
 
     Funcao::factory()
-            ->has(Usuario::factory()->count($amount), 'usuarios')
-            ->create();
+        ->has(Usuario::factory()->count($amount), 'usuarios')
+        ->create();
 
     $funcao = Funcao::with('usuarios')->first();
 

@@ -51,7 +51,7 @@ final class UsuarioImporter extends BaseImporter
             'nome' => $node->getAttribute('nome') ?: null,
             'lotacao_id' => $node->getAttribute('lotacao'),
             'cargo_id' => $node->getAttribute('cargo'),
-            'funcao_id' => $node->getAttribute('funcaoConfianca') ?: null
+            'funcao_id' => $node->getAttribute('funcaoConfianca') ?: null,
         ];
     }
 

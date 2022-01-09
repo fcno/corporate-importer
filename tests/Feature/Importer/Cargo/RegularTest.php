@@ -17,7 +17,7 @@ test('consegue importar os cargos do arquivo corporativo', function () {
     config(['corporateimporter.maxupsert' => 2]);
 
     CargoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     $cargos = Cargo::get();
 
@@ -35,7 +35,7 @@ test('cria os logs para os cargos inválidos', function () {
         );
 
     CargoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
 
     expect(Cargo::count())->toBe(3);

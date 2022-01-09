@@ -20,16 +20,16 @@ test('consegue importar os usuários do arquivo corporativo', function () {
     config(['corporateimporter.maxupsert' => 2]);
 
     CargoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     FuncaoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     LotacaoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     UsuarioImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     $usuarios = Usuario::get();
 
@@ -39,13 +39,13 @@ test('consegue importar os usuários do arquivo corporativo', function () {
 
 test('cria os logs para os usuários inválidos', function () {
     CargoImporter::make()
-        ->from($this->file_system->path($this->file_name))
+        ->from($this->file_path)
         ->execute();
     FuncaoImporter::make()
-        ->from($this->file_system->path($this->file_name))
+        ->from($this->file_path)
         ->execute();
     LotacaoImporter::make()
-        ->from($this->file_system->path($this->file_name))
+        ->from($this->file_path)
         ->execute();
 
     Log::shouldReceive('log')
@@ -57,7 +57,7 @@ test('cria os logs para os usuários inválidos', function () {
         );
 
     UsuarioImporter::make()
-        ->from($this->file_system->path($this->file_name))
+        ->from($this->file_path)
         ->execute();
 
     expect(Usuario::count())->toBe(5);

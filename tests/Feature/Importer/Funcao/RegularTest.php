@@ -17,7 +17,7 @@ test('consegue importar as funções do arquivo corporativo', function () {
     config(['corporateimporter.maxupsert' => 2]);
 
     FuncaoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
     $funcoes = Funcao::get();
 
@@ -35,7 +35,7 @@ test('cria os logs para as funções inválidas', function () {
         );
 
     FuncaoImporter::make()
-                    ->from($this->file_system->path($this->file_name))
+                    ->from($this->file_path)
                     ->execute();
 
     expect(Funcao::count())->toBe(3);

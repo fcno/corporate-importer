@@ -12,11 +12,11 @@ use Fcno\CorporateImporter\Models\Lotacao;
 use Fcno\CorporateImporter\Models\Usuario;
 
 test('facade retorna objeto da classe', function () {
-    expect(CorporateImporter::from($this->file_system->path($this->file_name)))->toBeInstanceOf(Importer::class);
+    expect(CorporateImporter::from($this->file_path))->toBeInstanceOf(Importer::class);
 });
 
 test('importa a estrutura corporativa completa', function () {
-    CorporateImporter::from($this->file_system->path($this->file_name))->run();
+    CorporateImporter::from($this->file_path)->run();
 
     expect(Cargo::count())->toBe(3)
     ->and(Funcao::count())->toBe(3)

@@ -7,18 +7,14 @@ uses(TestCase::class)->in('Feature', 'Unit');
 
 uses()
 ->beforeEach(function () {
+    $template = require __DIR__ . '/template/Corporate.php';
+    $xml = (new \SimpleXMLElement($template))->asXML();
+
     $this->file_system = Storage::fake('corporativo', [
         'driver' => 'local',
     ]);
+    $this->file_system->put('corporativo.xml', $xml);
 
-    // load do template do arquivo corporativo
-    $xmlstr = require __DIR__ . '/template/Corporate.php';
-
-    $this->file_name = 'corporativo.xml';
-
-    // cria o arquivo corporativo no File System
-    (new \SimpleXMLElement($xmlstr))
-    ->asXML(
-        $this->file_system->path($this->file_name)
-    );
+    // full path do arquivo corporativo que será criado
+    $this->file_path = $this->file_system->path('corporativo.xml');
 })->in('Feature/Importer');

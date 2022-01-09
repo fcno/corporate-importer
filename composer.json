@@ -56,7 +56,9 @@
     },
     "extra": {
         "laravel": {
-            "aliases": {},
+            "aliases": {
+                "CorporateImporter": "Fcno\\CorporateImporter\\Facades\\CorporateImporter"
+            },
             "providers": [
                 "Fcno\\CorporateImporter\\CorporateImporterServiceProvider"
             ]

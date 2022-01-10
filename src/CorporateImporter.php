@@ -70,17 +70,15 @@ class CorporateImporter implements IImportable
 
     /**
      * Tratativas iniciais da importação.
-     *
-     * @return static
      */
     private function start(): static
     {
         if ($this->shouldLog()) {
             Log::log(
-                level:'info',
+                level: 'info',
                 message: __('corporateimporter::corporateimporter.start'),
                 context: [
-                    'file_path' => $this->file_path
+                    'file_path' => $this->file_path,
                 ]
             );
         }
@@ -90,8 +88,6 @@ class CorporateImporter implements IImportable
 
     /**
      * Aciona os importadores.
-     *
-     * @return static
      */
     private function import(): static
     {
@@ -113,17 +109,15 @@ class CorporateImporter implements IImportable
 
     /**
      * Tratativas finais da importação.
-     *
-     * @return static
      */
     private function finish(): static
     {
         if ($this->shouldLog()) {
             Log::log(
-                level:'info',
+                level: 'info',
                 message: __('corporateimporter::corporateimporter.end'),
                 context: [
-                    'file_path' => $this->file_path
+                    'file_path' => $this->file_path,
                 ]
             );
         }

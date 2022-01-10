@@ -95,20 +95,11 @@ CorporateImporter::from($file_path)->run();
     php artisan vendor:publish --provider='Fcno\CorporateImporter\CorporateImporterServiceProvider' --tag='config'
     ```
 
-4. Opcionalmente alterar as mensagens ou criar outras traduções
-
-    Crie a seguinte estrutura de pastas em seu projeto
+4. Opcionalmente publicar as traduções
 
     ```bash
-    /resources
-        /lang
-            /vendor
-                /ldap
-                    /pt-br
-                        corporateimporter.php
+    php artisan vendor:publish --provider='Fcno\CorporateImporter\CorporateImporterServiceProvider' --tag='lang'
     ```
-
-    Caso necessário, altere a pasta **pt-br** para o idioma definido na aplicação, ex: **en**, **es** etc
 
     As strings disponíveis para tradução são as que seguem. Altere-as de acordo com a necessidade.
 
@@ -122,6 +113,8 @@ CorporateImporter::from($file_path)->run();
         'validation' => 'Validação falhou!',
     ];
     ```
+
+    >Este package já possui traduções para **pt-br** e **en**.
 
     &nbsp;
 

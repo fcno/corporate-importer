@@ -1,4 +1,4 @@
-# Log Reader para aplicações Laravel
+# Corporate Importer para aplicações Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fcno/corporate-importer.svg?style=flat-square)](https://packagist.org/packages/fcno/corporate-importer)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/run-tests?label=tests)](https://github.com/fcno/corporate-importer/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -29,12 +29,6 @@ CorporateImporter::from($file_path)->run();
 
 4. [Como funciona](#como-funciona)
 
-    1. [LogReader](#fcnologReaderfacadeslogreader)
-
-    2. [RecordReader](#fcnologReaderfacadesrecordreader)
-
-    3. [SummaryReader](#fcnologReaderfacadessummaryreader)
-
 5. [Testes e Integração Contínua](#testes-e-integração-contínua)
 
 6. [Changelog](#changelog)
@@ -57,9 +51,7 @@ CorporateImporter::from($file_path)->run();
 
 ## Notas
 
-⭐ A estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções e lotações.
-
-⭐ Este package é destinado a importação dessa estrutura, fornecida em arquivo formato XML para dentro de aplicações **[Laravel](https://laravel.com/docs)**.
+⭐ Estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções e lotações.
 
 ⬆️ [Voltar](#conteúdo)
 
@@ -67,18 +59,16 @@ CorporateImporter::from($file_path)->run();
 
 ## Pré-requisitos
 
-PHP ^8.0
+1. Dependências PHP
 
-Para uma checagem completa dos pré-requisitos:
-
-1. Via [Composer](https://getcomposer.org/doc/03-cli.md#check-platform-reqs)
+    PHP ^8.0
+    [Extensões](https://getcomposer.org/doc/03-cli.md#check-platform-reqs)
 
     ```bash
-    composer require fcno/log-reader
     composer check-platform-reqs
     ```
 
-2. Via [GitHub Dependencies](/../../network/dependencies)
+2. [GitHub Package Dependencies](/../../network/dependencies)
 
 ⬆️ [Voltar](#conteúdo)
 
@@ -86,7 +76,7 @@ Para uma checagem completa dos pré-requisitos:
 
 ## Instalação
 
-1. Instalar o package via **[composer](https://getcomposer.org/)**:
+1. Instalar via **[composer](https://getcomposer.org/)**:
 
     ```bash
     composer require fcno/corporate-importer
@@ -140,7 +130,7 @@ Para uma checagem completa dos pré-requisitos:
 
 ## Como funciona
 
-Este package precisa que a estrutura corporativa seja informada por meio de um arquivo em formato XML com codificação UTF-8 de acordo com modelo abaixo:
+Gerar o arquivo corporativo em formato XML:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -192,14 +182,13 @@ Para realizar a importação, são expostos os seguintes métodos:
 
 ✏️ **from**
 
-Assinatura e uso: informa ao package o caminho completo para o arquivo XML com
-a estrutura corporativa
+Assinatura e uso: definir o caminho completo para o arquivo XML com a estrutura corporativa
 
 ```php
 use Fcno\CorporateImporter\Facades\CorporateImporter;
 
 /**
- * @param string $file_path full path para o arquivo corporativo
+ * @param string $file_path full path para o arquivo
  * 
  * @return static
  */
@@ -215,7 +204,7 @@ Retorno: Instância da classe **CorporateImporter**
 Assinatura e uso: Importa a estrutura definida no arquivo informado
 
 ```php
-use Fcno\LogReader\Facades\LogReader;
+use Fcno\CorporateImporter\Facades\CorporateImporter;
 
 /**
  * @throws \Fcno\CorporateImporter\Exceptions\FileNotReadableException
@@ -231,7 +220,7 @@ Retorno: void
 
 🚨 **Exceptions**:
 
-- O método **run** lança **\Fcno\CorporateImporter\Exceptions\FileNotReadableException** caso o package não tenha permissão de leitura no arquivo ou ele não seja encontrado
+- **run** lança **\Fcno\CorporateImporter\Exceptions\FileNotReadableException** caso não tenha permissão de leitura no arquivo ou ele não seja encontrado
 
 ⬆️ [Voltar](#conteúdo)
 

@@ -9,23 +9,20 @@ jobs:
     name: PHP Coding Standards Fixer
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Run PHP CS Fixer
+        uses: docker://oskarstark/php-cs-fixer-ga
         with:
-          php-version: 8.1
-          tools: composer:v2
-          coverage: none
+          args: -v --config=.php-cs-fixer.dist.php --allow-risky=yes
 
-      - name: Install Dependencies
-        run: composer update --no-interaction --no-progress
-
-      - name: Run PHP-CS-Fixer
-        run: PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes --dry-run
+      - name: Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: CS Fix styling
 
   phpstan:
     runs-on: ubuntu-latest

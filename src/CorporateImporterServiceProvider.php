@@ -5,6 +5,7 @@ namespace Fcno\CorporateImporter;
 use Illuminate\Support\ServiceProvider;
 
 /**
+ * @see https://laravel.com/docs/8.x/packages
  * @see https://laravel.com/docs/8.x/packages#service-providers
  * @see https://laravel.com/docs/8.x/providers
  */
@@ -22,5 +23,12 @@ class CorporateImporterServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('corporateimporter.php')
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
     }
 }

@@ -86,13 +86,13 @@ CorporateImporter::from($file_path)->run();
 2. Publicar as migrations necessárias
 
     ```bash
-    php artisan fcno:corporate-importer --tag=migrations
+    php artisan vendor:publish --provider='Fcno\CorporateImporter\CorporateImporterServiceProvider' --tag='migrations'
     ```
 
 3. Opcionalmente publicar as configurações
 
     ```bash
-    php artisan fcno:corporate-importer --tag=config
+    php artisan vendor:publish --provider='Fcno\CorporateImporter\CorporateImporterServiceProvider' --tag='config'
     ```
 
 4. Opcionalmente alterar as mensagens ou criar outras traduções

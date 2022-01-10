@@ -26,18 +26,18 @@ class CorporateImporterServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/corporateimporter')
+                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/corporateimporter'),
             ], 'lang');
 
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('corporateimporter.php')
+                __DIR__ . '/../config/config.php' => config_path('corporateimporter.php'),
             ], 'config');
 
             $this->publishes([
                 __DIR__ . '/../database/migrations/create_cargos_table.php.stub' => database_path('migrations/2020_01_01_000000_create_cargos_table.php'),
                 __DIR__ . '/../database/migrations/create_funcoes_table.php.stub' => database_path('migrations/2020_01_01_000000_create_funcoes_table.php'),
                 __DIR__ . '/../database/migrations/create_lotacoes_table.php.stub' => database_path('migrations/2020_01_01_000000_create_lotacoes_table.php'),
-                __DIR__ . '/../database/migrations/create_usuarios_table.php.stub' => database_path('migrations/2020_01_01_000000_create_usuarios_table.php')
+                __DIR__ . '/../database/migrations/create_usuarios_table.php.stub' => database_path('migrations/2020_01_01_000000_create_usuarios_table.php'),
             ], 'migrations');
         }
     }

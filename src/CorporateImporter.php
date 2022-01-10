@@ -3,13 +3,13 @@
 namespace Fcno\CorporateImporter;
 
 use Fcno\CorporateImporter\Contracts\IImportable;
-use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
 use Fcno\CorporateImporter\Importer\CargoImporter;
 use Fcno\CorporateImporter\Importer\FuncaoImporter;
 use Fcno\CorporateImporter\Importer\LotacaoImporter;
 use Fcno\CorporateImporter\Importer\UsuarioImporter;
 use Fcno\CorporateImporter\Trait\Logable;
 use Illuminate\Support\Facades\Log;
+use Fcno\CorporateImporter\Exceptions\FileNotReadableException;
 
 /**
  * Importador da estrutura completa do arquivo corporativo.

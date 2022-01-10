@@ -214,7 +214,7 @@ use Fcno\CorporateImporter\Facades\CorporateImporter;
  *
  * @return void
 */
-CorporateImporter::from($file_path)->get();
+CorporateImporter::from($file_path)->run();
 ```
 
 Retorno: void

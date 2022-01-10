@@ -5,7 +5,7 @@ namespace Fcno\CorporateImporter\Trait;
 trait Logable
 {
     /**
-     * Nível do lo
+     * Nível do log.
      *
      * @var string
      */

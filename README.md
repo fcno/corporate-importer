@@ -51,7 +51,7 @@ CorporateImporter::from($file_path)->run();
 
 ## Notas
 
-⭐ Estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções e lotações.
+⭐ Estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções de confiança e lotações.
 
 ⬆️ [Voltar](#conteúdo)
 
@@ -62,6 +62,7 @@ CorporateImporter::from($file_path)->run();
 1. Dependências PHP
 
     PHP ^8.0
+
     [Extensões](https://getcomposer.org/doc/03-cli.md#check-platform-reqs)
 
     ```bash
@@ -176,6 +177,8 @@ Gerar o arquivo corporativo em formato XML:
 </base>
 ```
 
+&nbsp;
+
 Para realizar a importação, são expostos os seguintes métodos:
 
 &nbsp;
@@ -248,7 +251,7 @@ Por favor, veja o [CHANGELOG](CHANGELOG.md) para maiores informações sobre o q
 
 ## Contribuição
 
-Por favor, veja [CONTRIBUTING](../.github/CONTRIBUTING.md) para maiores detalhes.
+Por favor, veja [CONTRIBUTING](.github/CONTRIBUTING.md) para maiores detalhes.
 
 ⬆️ [Voltar](#conteúdo)
 
@@ -256,7 +259,7 @@ Por favor, veja [CONTRIBUTING](../.github/CONTRIBUTING.md) para maiores detalhes
 
 ## Código de Conduta
 
-Para garantir que todos são bem vindos a contribuir com esse projeto open-source, por favor leia e cumpra o [Código de Conduta](../.github/CODE_OF_CONDUCT.md).
+Para garantir que todos sejam bem vindos a contribuir com esse projeto open-source, por favor leia e siga o [Código de Conduta](.github/CODE_OF_CONDUCT.md).
 
 ⬆️ [Back](#conteúdo)
 
@@ -310,7 +313,7 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 - ❤️ [FriendsOfPHP](https://github.com/FriendsOfPHP) pelos package [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
-- ❤️ [Nuno Maduro](https://github.com/FakerPHP) pelos package [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
+- ❤️ [Nuno Maduro](https://github.com/nunomaduro) pelos package [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
 
 - ❤️ [PEST](https://github.com/pestphp) pelos packages:
 

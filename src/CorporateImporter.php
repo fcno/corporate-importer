@@ -75,7 +75,7 @@ class CorporateImporter implements IImportable
     {
         if ($this->shouldLog()) {
             Log::log(
-                level: 'info',
+                level: $this->level,
                 message: __('corporateimporter::corporateimporter.start'),
                 context: [
                     'file_path' => $this->file_path,
@@ -114,7 +114,7 @@ class CorporateImporter implements IImportable
     {
         if ($this->shouldLog()) {
             Log::log(
-                level: 'info',
+                level: $this->level,
                 message: __('corporateimporter::corporateimporter.end'),
                 context: [
                     'file_path' => $this->file_path,

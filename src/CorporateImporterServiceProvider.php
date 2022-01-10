@@ -14,7 +14,6 @@ class CorporateImporterServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'corporateimporter');
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', 'corporateimporter');
 
         $this->app->bind('corporate-importer', function ($app) {
             return new CorporateImporter();
@@ -23,6 +22,12 @@ class CorporateImporterServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', 'corporateimporter');
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/corporateimporter')
+        ], 'lang');
+
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('corporateimporter.php')
         ], 'config');

@@ -33,6 +33,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # https://github.com/marketplace/actions/codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:

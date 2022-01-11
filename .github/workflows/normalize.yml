@@ -1,4 +1,4 @@
-name: Normalize composer.json
+name: Normalize
 
 on:
   push:
@@ -8,11 +8,16 @@ on:
 jobs:
   normalize:
     runs-on: ubuntu-latest
+
+    name: Normalize composer.json
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
 
-      - name: normalize composer.json
+      - name: Run normalize
         run: |
           composer global require ergebnis/composer-normalize
           composer normalize
@@ -20,4 +25,4 @@ jobs:
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Normalize composer.json
+          commit_message: 'lint: normalize composer.json'

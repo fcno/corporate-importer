@@ -22,7 +22,7 @@ jobs:
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: CS Fix styling
+          commit_message: 'lint: php-cs-fixer'
 
   phpstan:
     runs-on: ubuntu-latest

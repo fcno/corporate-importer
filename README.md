@@ -2,6 +2,7 @@
 
 ![Packagist Version](https://img.shields.io/packagist/v/fcno/corporate-importer?logo=packagist)
 ![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Unit%20and%20Feature%20tests/main?label=tests&logo=github)
+[![codecov](https://codecov.io/gh/fcno/corporate-importer/branch/main/graph/badge.svg?token=SWQLMQ0V3W)](https://codecov.io/gh/fcno/corporate-importer)
 ![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Static%20Analysis/main?label=code%20style&logo=github)
 ![Packagist Total Downloads](https://img.shields.io/packagist/dt/fcno/corporate-importer?logo=packagist)
 

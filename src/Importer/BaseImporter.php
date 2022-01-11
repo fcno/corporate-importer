@@ -75,6 +75,8 @@ abstract class BaseImporter implements IImportable
 
     /**
      * Tratativas iniciais para a importação.
+     *
+     * @return static
      */
     protected function setup(): static
     {
@@ -106,6 +108,10 @@ abstract class BaseImporter implements IImportable
 
     /**
      * Faz a persistência dos itens validados.
+     *
+     * @param \Illuminate\Support\Collection $validated
+     *
+     * @return void
      */
     abstract protected function save(Collection $validated): void;
 
@@ -117,6 +123,8 @@ abstract class BaseImporter implements IImportable
      * - Extrair os dados do nó xml de interesse;
      * - Validar os dados extraídos e, se preciso, logar as inconsistências;
      * - Acionar a persistência.
+     *
+     * @return static
      *
      * @see https://drib.tech/programming/parse-large-xml-files-php
      */
@@ -204,6 +212,8 @@ abstract class BaseImporter implements IImportable
      * @param string                    $level   nível do log
      * @param string|\Stringable        $message sobre o ocorrido
      * @param array<string, mixed>|null $context dados de contexto
+     *
+     * @return void
      *
      * @see https://www.php-fig.org/psr/psr-3/
      * @see https://www.php.net/manual/en/function.array-merge.php

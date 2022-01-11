@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Facade;
  */
 class CorporateImporter extends Facade
 {
+    /**
+     * @return string
+     */
     protected static function getFacadeAccessor()
     {
         return 'corporate-importer';

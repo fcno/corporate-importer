@@ -22,6 +22,8 @@ class Cargo extends Model
 
     /**
      * Usuários de um determinado cargo.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function usuarios(): HasMany
     {
@@ -30,6 +32,8 @@ class Cargo extends Model
 
     /**
      * Define o escopo padrão de ordenação do modelo.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSort(Builder $query): Builder
     {

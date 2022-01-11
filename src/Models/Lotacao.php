@@ -23,6 +23,8 @@ class Lotacao extends Model
 
     /**
      * Lotação pai de uma determinada lotação.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function lotacaoPai(): BelongsTo
     {
@@ -31,6 +33,8 @@ class Lotacao extends Model
 
     /**
      * Lotações filhas de uma determinada lotação.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function lotacoesFilha(): HasMany
     {
@@ -39,6 +43,8 @@ class Lotacao extends Model
 
     /**
      * Usuários de uma determinado lotação.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function usuarios(): HasMany
     {
@@ -47,6 +53,8 @@ class Lotacao extends Model
 
     /**
      * Define o escopo padrão de ordenação do modelo.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSort(Builder $query): Builder
     {

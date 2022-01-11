@@ -20,6 +20,8 @@ class Usuario extends Model
 
     /**
      * Lotação de um determinado usuário.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function lotacao(): BelongsTo
     {
@@ -28,6 +30,8 @@ class Usuario extends Model
 
     /**
      * Cargo de um determinado usuário.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function cargo(): BelongsTo
     {
@@ -36,6 +40,8 @@ class Usuario extends Model
 
     /**
      * Função de um determinado usuário.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function funcao(): BelongsTo
     {
@@ -44,6 +50,8 @@ class Usuario extends Model
 
     /**
      * Define o escopo padrão de ordenação do modelo.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSort(Builder $query): Builder
     {

@@ -58,6 +58,8 @@ class CorporateImporter implements IImportable
      * Verfica se o arquivo informado existe e pode ser lido.
      *
      * @param string $file_path full path
+     *
+     * @return bool
      */
     private function isReadable(string $file_path): bool
     {
@@ -70,6 +72,8 @@ class CorporateImporter implements IImportable
 
     /**
      * Tratativas iniciais da importação.
+     *
+     * @return static
      */
     private function start(): static
     {
@@ -88,6 +92,8 @@ class CorporateImporter implements IImportable
 
     /**
      * Aciona os importadores.
+     *
+     * @return static
      */
     private function import(): static
     {
@@ -109,6 +115,8 @@ class CorporateImporter implements IImportable
 
     /**
      * Tratativas finais da importação.
+     *
+     * @return static
      */
     private function finish(): static
     {

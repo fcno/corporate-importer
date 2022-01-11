@@ -22,6 +22,8 @@ class Funcao extends Model
 
     /**
      * Usuários de uma determinada função.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function usuarios(): HasMany
     {
@@ -30,6 +32,8 @@ class Funcao extends Model
 
     /**
      * Define o escopo padrão de ordenação do modelo.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSort(Builder $query): Builder
     {

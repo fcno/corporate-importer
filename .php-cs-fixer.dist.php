@@ -21,6 +21,7 @@ $rules = [
         'keep_multiple_spaces_after_comma' => true,
     ],
     'phpdoc_line_span' => true,
+    'no_superfluous_phpdoc_tags' => false,
     'phpdoc_order' => true,
     'phpdoc_types_order' => [
         'null_adjustment' => 'always_last', 'sort_algorithm' => 'alpha',

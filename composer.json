@@ -1,6 +1,6 @@
 {
     "name": "fcno/corporate-importer",
-    "description": "Importador da estrutura corporativo em formato XML",
+    "description": "Importador de estrutura corporativa em formato XML para aplicações Laravel",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -21,7 +21,8 @@
     ],
     "homepage": "https://github.com/fcno/corporate-importer",
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "ext-xmlreader": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.4",
@@ -29,6 +30,7 @@
         "orchestra/testbench": "^6.23",
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/phpstan": "^1.3",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5"
@@ -37,7 +39,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Fcno\\CorporateImporter\\": "src"
+            "Fcno\\CorporateImporter\\": "src",
+            "Fcno\\CorporateImporter\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
@@ -55,7 +58,9 @@
     },
     "extra": {
         "laravel": {
-            "aliases": {},
+            "aliases": {
+                "CorporateImporter": "Fcno\\CorporateImporter\\Facades\\CorporateImporter"
+            },
             "providers": [
                 "Fcno\\CorporateImporter\\CorporateImporterServiceProvider"
             ]
@@ -64,7 +69,7 @@
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse --ansi --memory-limit 1G --error-format=github --debug",
         "coverage": "composer test -- --coverage",
-        "csfix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --config=.php-cs-fixer.dist.php --allow-risky=yes",
+        "csfix": "vendor/bin/php-cs-fixer fix -v --config=.php-cs-fixer.dist.php --allow-risky=yes",
         "test": "vendor/bin/pest --colors=always"
     }
 }

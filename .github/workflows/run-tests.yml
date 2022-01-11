@@ -1,0 +1,55 @@
+name: Unit and Feature tests
+
+on: ['push', 'pull_request']
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: package
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
+        php: [8.0]
+        laravel: [8.*]
+        stability: [prefer-lowest, prefer-stable]
+        include:
+          - laravel: 8.*
+            testbench: ^6.23
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: bcmath, ctype, curl, dom, fileinfo, filter, json, libxml, mbstring, openssl, pcre, pdo, pdo_mysql, phar, tokenizer, xml, xmlreader, xmlwriter
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-stable --no-interaction --no-progress
+
+      - name: Execute tests
+        run: ./vendor/bin/pest --coverage --colors=always

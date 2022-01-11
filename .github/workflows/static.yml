@@ -1,0 +1,47 @@
+name: Static Analysis
+
+on: ['push', 'pull_request']
+
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+
+    name: PHP Coding Standards Fixer
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Run PHP CS Fixer
+        uses: docker://oskarstark/php-cs-fixer-ga
+        with:
+          args: -v --config=.php-cs-fixer.dist.php --allow-risky=yes
+
+      - name: Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: CS Fix styling
+
+  phpstan:
+    runs-on: ubuntu-latest
+
+    name: PHPStan - PHP Static Analysis Tool
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          tools: composer:v2
+          coverage: none
+
+      - name: Install Dependencies
+        run: composer update --prefer-stable --no-interaction --no-progress
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --error-format=github --debug

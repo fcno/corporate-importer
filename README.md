@@ -306,7 +306,7 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 - ❤️ [FriendsOfPHP](https://github.com/FriendsOfPHP) pelos package [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
-- ❤️ [Nuno Maduro](https://github.com/nunomaduro) pelos package [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
+- ❤️ [Nuno Maduro](https://github.com/nunomaduro) pelo package [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
 
 - ❤️ [PEST](https://github.com/pestphp) pelos packages:
 

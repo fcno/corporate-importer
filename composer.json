@@ -22,7 +22,10 @@
     "homepage": "https://github.com/fcno/corporate-importer",
     "require": {
         "php": "^8.0",
-        "ext-xmlreader": "*"
+        "ext-xmlreader": "*",
+        "illuminate/collections": "^8.78",
+        "illuminate/database": "^8.78",
+        "illuminate/support": "^8.78"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.4",

@@ -303,9 +303,7 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
   - [illuminate/collections](https://github.com/illuminate/collections)
 
-  - [illuminate/contracts](https://github.com/illuminate/contracts)
-
-  - [illuminate/filesystem](https://github.com/illuminate/filesystem)
+  - [illuminate/database](https://github.com/illuminate/database)
 
   - [illuminate/support](https://github.com/illuminate/support)
 

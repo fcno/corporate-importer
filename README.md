@@ -184,7 +184,7 @@ Para realizar a importação, são expostos os seguintes métodos:
 
 ✏️ **from**
 
-Assinatura e uso: definir o caminho completo para o arquivo XML com a estrutura corporativa
+Assinatura e uso: define o caminho completo para o arquivo XML com a estrutura corporativa
 
 ```php
 use Fcno\CorporateImporter\Facades\CorporateImporter;
@@ -232,6 +232,7 @@ Retorno: void
 
 ```bash
 composer analyse
+composer csfix
 composer test
 composer coverage
 ```

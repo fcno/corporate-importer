@@ -25,45 +25,45 @@ CorporateImporter::from($file_path)->run();
 
 ---
 
-## Conteúdo
+## Table of Contents
 
-1. [Notas](#notas)
+1. [Notes](#notes)
 
-2. [Pré-requisitos](#pré-requisitos)
+2. [Prerequisites](#prerequisites)
 
-3. [Instalação](#instalação)
+3. [Installation](#installation)
 
-4. [Como funciona](#como-funciona)
+4. [How it works](#how-it-works)
 
-5. [Testes e Integração Contínua](#testes-e-integração-contínua)
+5. [Testing and Continuous Integration](#testing-and-continuous-integration)
 
 6. [Changelog](#changelog)
 
-7. [Contribuição](#contribuição)
+7. [Contributing](#contributing)
 
-8. [Código de Conduta](#código-de-conduta)
+8. [Code of conduct](#code-of-conduct)
 
-9. [Vulnerabilidades de Segurança](#vulnerabilidades-de-segurança)
+9. [Security Vulnerabilities](#security-vulnerabilities)
 
-10. [Suporte e Atualizações](#suporte-e-atualizações)
+10. [Support and Updates](#support-and-updates)
 
-11. [Créditos](#créditos)
+11. [Credits](#credits)
 
-12. [Agradecimentos](#agradecimentos)
+12. [Thanks](#thanks)
 
-13. [Licença](#licença)
+13. [License](#license)
 
 ---
 
-## Notas
+## Notes
 
 ⭐ Estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções de confiança e lotações.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Pré-requisitos
+## Prerequisites
 
 1. Dependências PHP
 
@@ -77,11 +77,11 @@ CorporateImporter::from($file_path)->run();
 
 2. [GitHub Package Dependencies](/../../network/dependencies)
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Instalação
+## Installation
 
 1. Instalar via **[composer](https://getcomposer.org/)**:
 
@@ -124,11 +124,11 @@ CorporateImporter::from($file_path)->run();
 
     &nbsp;
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Como funciona
+## How it works
 
 Gerar o arquivo corporativo em formato XML:
 
@@ -224,11 +224,11 @@ Retorno: void
 
 - **run** lança **\Fcno\CorporateImporter\Exceptions\FileNotReadableException** caso não tenha permissão de leitura no arquivo ou ele não seja encontrado
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Testes e Integração Contínua
+## Testing and Continuous Integration
 
 ```bash
 composer analyse
@@ -236,7 +236,7 @@ composer test
 composer coverage
 ```
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
@@ -244,19 +244,19 @@ composer coverage
 
 Por favor, veja o [CHANGELOG](CHANGELOG.md) para maiores informações sobre o que mudou em cada versão.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Contribuição
+## Contributing
 
 Por favor, veja [CONTRIBUTING](.github/CONTRIBUTING.md) para maiores detalhes.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Código de Conduta
+## Code of conduct
 
 Para garantir que todos sejam bem vindos a contribuir com esse projeto open-source, por favor leia e siga o [Código de Conduta](.github/CODE_OF_CONDUCT.md).
 
@@ -264,15 +264,15 @@ Para garantir que todos sejam bem vindos a contribuir com esse projeto open-sour
 
 &nbsp;
 
-## Vulnerabilidades de Segurança
+## Security Vulnerabilities
 
 Por favor, veja na [política de segurança](/../../security/policy) como reportar vulnerabilidades ou falhas de segurança.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Suporte e Atualizações
+## Support and Updates
 
 A versão mais recente receberá suporte e atualizações sempre que houver necessidade. As demais receberão apenas atualizações para corrigir [vulnerabilidades de segurança](#vulnerabilidades-de-segurança) por até 06 meses após ela ter sido substituída por uma nova versão.
 
@@ -280,21 +280,21 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 ✨ Alguma ideia nova?!?! Inicie **[uma discussão](/../../discussions/new?category=ideas)**.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Créditos
+## Credits
 
 - [Fábio Cassiano](https://github.com/fcno)
 
 - [All Contributors](/../../contributors)
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Agradecimentos
+## Thanks
 
 👋 Agradeço às pessoas e organizações abaixo por terem doado seu tempo na construção de projetos open-source que foram usados neste package.
 
@@ -332,12 +332,12 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 💸 Algumas dessas pessoas ou organizações possuem alguns produtos/serviços que podem ser comprados. Se você puder ajudá-los comprando algum deles ou se tornando um patrocinador, mesmo que por curto período, ajudará toda a comunidade **open-source** a continuar desenvolvendo soluções para todos.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)
 
 &nbsp;
 
-## Licença
+## License
 
 The MIT License (MIT). Por favor, veja o **[License File](LICENSE.md)** para maiores informações.
 
-⬆️ [Voltar](#conteúdo)
+⬆️ [Voltar](#table-of-contents)

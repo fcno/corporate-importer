@@ -1,15 +1,15 @@
 # Corporate Importer para aplicações Laravel
 
-![Packagist Version](https://img.shields.io/packagist/v/fcno/corporate-importer?logo=packagist)
-![GitHub Release Date](https://img.shields.io/github/release-date/fcno/corporate-importer?logo=github)
-![GitHub last commit](https://img.shields.io/github/last-commit/fcno/corporate-importer?logo=github)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/fcno/corporate-importer?logo=packagist)](https://packagist.org/packages/fcno/corporate-importer)
+[![GitHub Release Date](https://img.shields.io/github/release-date/fcno/corporate-importer?logo=github)](/../../releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/fcno/corporate-importer?logo=github)](/../../commits)
 [![Codecov coverage](https://codecov.io/gh/fcno/corporate-importer/branch/main/graph/badge.svg?token=SWQLMQ0V3W)](https://codecov.io/gh/fcno/corporate-importer)
-![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Unit%20and%20Feature%20tests/main?label=tests&logo=github)
-![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Static%20Analysis/main?label=code%20style&logo=github)
-![GitHub issues](https://img.shields.io/github/issues/fcno/corporate-importer?logo=github)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Unit%20and%20Feature%20tests/main?label=tests&logo=github)](/../../actions/workflows/run-tests.yml?query=branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fcno/corporate-importer/Static%20Analysis/main?label=code%20style&logo=github)](/../../actions/workflows/static.yml?query=branch%3Amain)
+[![GitHub issues](https://img.shields.io/github/issues/fcno/corporate-importer?logo=github)](/../../issues)
 ![GitHub repo size](https://img.shields.io/github/repo-size/fcno/corporate-importer?logo=github)
-![Packagist Total Downloads](https://img.shields.io/packagist/dt/fcno/corporate-importer?logo=packagist)
-![GitHub](https://img.shields.io/github/license/fcno/corporate-importer?logo=github)
+[![Packagist Total Downloads](https://img.shields.io/packagist/dt/fcno/corporate-importer?logo=packagist)](https://packagist.org/packages/fcno/corporate-importer)
+[![GitHub](https://img.shields.io/github/license/fcno/corporate-importer?logo=github)](LICENSE.md)
 
 Package para importar a estrutura corporativa em formato XML para aplicações **[Laravel](https://laravel.com/docs)**.
 

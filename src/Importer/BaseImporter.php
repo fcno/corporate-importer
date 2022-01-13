@@ -136,7 +136,6 @@ abstract class BaseImporter implements IImportable
         }
 
         return $xml;
-
     }
 
     /**

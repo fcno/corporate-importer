@@ -14,7 +14,7 @@
 
 Package para importar a **Estrutura Corporativa** em formato XML para aplicações **[Laravel](https://laravel.com/docs)**.
 
-Este package foi planejado de acordo com as necessidades da Justiça Federal da 2ª Região. Contudo, ele pode ser utilizado em outros órgãos e projetos observado os termos previstos no [licenciamento](#License).
+Este package foi planejado de acordo com as necessidades da Justiça Federal da 2ª Região. Contudo, ele pode ser utilizado em outros órgãos e projetos observado os termos previstos no [licenciamento](#license).
 
 ```php
 use Fcno\CorporateImporter\Facades\CorporateImporter;

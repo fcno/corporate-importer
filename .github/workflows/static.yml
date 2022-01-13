@@ -27,6 +27,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'lint: php-cs-fixer'
+          branch: ${{ github.head_ref }}
 
   phpstan:
     runs-on: ubuntu-latest

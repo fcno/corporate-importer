@@ -6,19 +6,6 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
 
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_DATABASE: package
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     strategy:
       fail-fast: true
       matrix:
@@ -32,7 +19,20 @@ jobs:
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
+    env:
+      DB_HOST: localhost
+      DB_DATABASE: package
+      DB_USER: root
+      DB_PASSWORD: root
+
     steps:
+      - name: Setup MySql
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE package;' -uroot -proot
+          mysql -e 'SHOW DATABASES;' -uroot -proot
+          mysql -V
+
       - name: Checkout
         uses: actions/checkout@v2
 

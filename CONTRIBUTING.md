@@ -72,6 +72,8 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **Document any change in behaviour** - Make sure the [README.md](README.md) and any other relevant documentation are kept up-to-date.
 
+- **Commit Message Guidelines** - We try to follow [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/spec/v2.0.0.html). Randomly breaking public APIs is not an option.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.

@@ -12,7 +12,7 @@
 [![Packagist Total Downloads](https://img.shields.io/packagist/dt/fcno/corporate-importer?logo=packagist)](https://packagist.org/packages/fcno/corporate-importer)
 [![GitHub](https://img.shields.io/github/license/fcno/corporate-importer?logo=github)](LICENSE.md)
 
-Package para importar a estrutura corporativa em formato XML para aplicações **[Laravel](https://laravel.com/docs)**.
+Package para importar a **Estrutura Corporativa** em formato XML para aplicações **[Laravel](https://laravel.com/docs)**.
 
 Este package foi planejado de acordo com as necessidades da Justiça Federal da 2ª Região. Contudo, ele pode ser utilizado em outros órgãos e projetos observado os termos previstos no [licenciamento](#licença).
 
@@ -58,7 +58,7 @@ CorporateImporter::from($file_path)->run();
 
 ## Notes
 
-⭐ Estrutura corporativa é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções de confiança e lotações.
+⭐ **Estrutura Corporativa** é o nome dado à consolidação das informações mínimas sobre pessoal, cargos, funções de confiança e lotações.
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -131,7 +131,7 @@ CorporateImporter::from($file_path)->run();
 
 ## How it works
 
-Gerar o arquivo corporativo em formato XML:
+Gerar o arquivo com a **Estrutura Corporativa** em formato XML:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,7 +185,7 @@ Para realizar a importação, são expostos os seguintes métodos:
 
 ✏️ **from**
 
-Assinatura e uso: define o caminho completo para o arquivo XML com a estrutura corporativa
+Assinatura e uso: define o caminho completo para o arquivo XML com a **Estrutura Corporativa**
 
 ```php
 use Fcno\CorporateImporter\Facades\CorporateImporter;

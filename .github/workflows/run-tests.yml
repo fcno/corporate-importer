@@ -2,6 +2,10 @@ name: Unit and Feature tests
 
 on: ['push', 'pull_request']
 
+concurrency:
+  group: build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -23,7 +27,7 @@ jobs:
       DB_HOST: localhost
       DB_DATABASE: package
       DB_USER: root
-      DB_PASSWORD: root
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     steps:
       - name: Setup MySql
@@ -74,4 +78,4 @@ jobs:
       - name: Upload coverage to Code Climate
         uses: paambaati/codeclimate-action@v3.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}

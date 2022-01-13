@@ -5,6 +5,10 @@ on:
     paths:
       - 'composer.json'
 
+concurrency:
+  group: build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   normalize:
     runs-on: ubuntu-latest

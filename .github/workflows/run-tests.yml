@@ -23,22 +23,17 @@ jobs:
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
-    env:
-      DB_HOST: localhost
-      DB_DATABASE: package
-      DB_USER: root
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
     steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Setup MySql
         run: |
           sudo /etc/init.d/mysql start
           mysql -e 'CREATE DATABASE package;' -uroot -proot
           mysql -e 'SHOW DATABASES;' -uroot -proot
           mysql -V
-
-      - name: Checkout
-        uses: actions/checkout@v2
 
       - name: Cache dependencies
         uses: actions/cache@v2

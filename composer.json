@@ -1,6 +1,6 @@
 {
     "name": "fcno/corporate-importer",
-    "description": "Importador de estrutura corporativa em formato XML para aplicações Laravel",
+    "description": "Importador de Estrutura Corporativa em formato XML para aplicações Laravel",
     "license": "MIT",
     "type": "library",
     "keywords": [

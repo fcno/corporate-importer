@@ -23,6 +23,11 @@ jobs:
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
+    env:
+      DB_DATABASE: package
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
     steps:
 
       - name: Checkout

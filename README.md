@@ -252,7 +252,7 @@ Por favor, veja o [CHANGELOG](CHANGELOG.md) para maiores informações sobre o q
 
 ## Contributing
 
-Por favor, veja [CONTRIBUTING](.github/CONTRIBUTING.md) para maiores detalhes.
+Por favor, veja [CONTRIBUTING](CONTRIBUTING.md) para maiores detalhes.
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -260,7 +260,7 @@ Por favor, veja [CONTRIBUTING](.github/CONTRIBUTING.md) para maiores detalhes.
 
 ## Code of conduct
 
-Para garantir que todos sejam bem vindos a contribuir com esse projeto open-source, por favor leia e siga o [Código de Conduta](.github/CODE_OF_CONDUCT.md).
+Para garantir que todos sejam bem vindos a contribuir com esse projeto open-source, por favor leia e siga o [Código de Conduta](CODE_OF_CONDUCT.md).
 
 ⬆️ [Back](#conteúdo)
 

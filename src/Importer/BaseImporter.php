@@ -116,6 +116,30 @@ abstract class BaseImporter implements IImportable
     abstract protected function save(Collection $validated): void;
 
     /**
+     * Posiciona o XMLReader no primeiro nó XML que deverá ser trabalhado.
+     *
+     * Ex: se o desejo for ler os **cargos**, o arquivo XML será lido pelo
+     * **XMLReader** retornando o ponteiro apontando para o primeiro nó com o
+     * nome **cargo** para que eles sejam processados.
+     *
+     * @return \XMLReader
+     *
+     * @see https://drib.tech/programming/parse-large-xml-files-php
+     */
+    protected function startReadFrom(): \XMLReader
+    {
+        $xml = new \XMLReader();
+        $xml->open($this->file_path);
+
+        // finding first primary element to work with
+        while ($xml->read() && $xml->name != $this->node) {
+        }
+
+        return $xml;
+
+    }
+
+    /**
      * Prepara a entidade para persistência.
      *
      * A preparação é feita por meio dos seguintes passos:
@@ -131,12 +155,8 @@ abstract class BaseImporter implements IImportable
     protected function process(): static
     {
         $validated = collect();
-        $xml = new \XMLReader();
-        $xml->open($this->file_path);
 
-        // finding first primary element to work with
-        while ($xml->read() && $xml->name != $this->node) {
-        }
+        $xml = $this->startReadFrom();
 
         // looping through elements
         while ($xml->name == $this->node) {
@@ -161,9 +181,7 @@ abstract class BaseImporter implements IImportable
         $xml->close();
 
         // salva o saldo dos registros
-        if ($validated->isNotEmpty()) {
-            $this->save($validated);
-        }
+        $this->save($validated);
 
         return $this;
     }

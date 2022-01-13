@@ -14,7 +14,7 @@
 
 Package para importar a **Estrutura Corporativa** em formato XML para aplicações **[Laravel](https://laravel.com/docs)**.
 
-Este package foi planejado de acordo com as necessidades da Justiça Federal da 2ª Região. Contudo, ele pode ser utilizado em outros órgãos e projetos observado os termos previstos no [licenciamento](#licença).
+Este package foi planejado de acordo com as necessidades da Justiça Federal da 2ª Região. Contudo, ele pode ser utilizado em outros órgãos e projetos observado os termos previstos no [licenciamento](#License).
 
 ```php
 use Fcno\CorporateImporter\Facades\CorporateImporter;
@@ -276,7 +276,7 @@ Por favor, veja na [política de segurança](/../../security/policy) como report
 
 ## Support and Updates
 
-A versão mais recente receberá suporte e atualizações sempre que houver necessidade. As demais receberão apenas atualizações para corrigir [vulnerabilidades de segurança](#vulnerabilidades-de-segurança) por até 06 meses após ela ter sido substituída por uma nova versão.
+A versão mais recente receberá suporte e atualizações sempre que houver necessidade. As demais receberão apenas atualizações para corrigir [vulnerabilidades de segurança](#security-vulnerabilities) por até 06 meses após ela ter sido substituída por uma nova versão.
 
 🐛 Encontrou um bug?!?! Abra um **[issue](/../../issues/new?assignees=fcno&labels=bug%2Ctriage&template=bug_report.yml&title=%5BA+concise+title+for+the+bug%5D)**.
 

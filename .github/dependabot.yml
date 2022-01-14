@@ -12,6 +12,10 @@ updates:
       - 'actions'
     open-pull-requests-limit: 15
     target-branch: 'main'
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
 
   - package-ecosystem: 'composer'
     directory: '/'
@@ -21,3 +25,7 @@ updates:
       - 'composer'
     open-pull-requests-limit: 15
     target-branch: 'main'
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope

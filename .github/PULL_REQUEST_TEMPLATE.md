@@ -36,7 +36,7 @@ Describe the big picture of your changes here to communicate to the maintainers 
 
 - [ ] I have made corresponding changes to the documentation.
 
-- [ ] I have read the **[CONTRIBUTING](../CONTRIBUTING.md)** document.
+- [ ] I have read the **[CONTRIBUTING](../docs/CONTRIBUTING.md)** document.
 
 - [ ] I have added tests that prove my fix is effective or that my feature works.
 

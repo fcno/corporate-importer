@@ -338,6 +338,6 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 ## License
 
-The MIT License (MIT). Por favor, veja o **[License File](LICENSE.md)** para maiores informações.
+The MIT License (MIT). Por favor, veja o **[License File](../LICENSE.md)** para maiores informações.
 
 ⬆️ [Voltar](#table-of-contents)

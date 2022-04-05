@@ -64,7 +64,7 @@ jobs:
 
       # https://github.com/marketplace/actions/codecov
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           name: codecov-umbrella
           fail_ci_if_error: true
